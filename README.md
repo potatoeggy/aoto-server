@@ -1,0 +1,1 @@
+Aoto's server component
