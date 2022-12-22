@@ -24,6 +24,14 @@ create table api.tagmap (
   created_at timestamptz not null default now()
 );
 
+create table api.tagmap_minor {
+  /* for minor tags */
+  id serial primary key,
+  book_id integer not null,
+  tag_id integer not null,
+  created_at timestamptz not null default now()
+}
+
 
 create table api.authors (
   id serial primary key,
