@@ -21,7 +21,9 @@ create table api.tagmap (
   id serial primary key,
   book_id integer not null,
   tag_id integer not null,
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  constraint fk_bookid foreign key (book_id) references api.books,
+  constraint fk_tagid foreign key (tag_id) references api.tags
 );
 
 create table api.tagmap_minor {
@@ -29,7 +31,9 @@ create table api.tagmap_minor {
   id serial primary key,
   book_id integer not null,
   tag_id integer not null,
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  constraint fk_bookid foreign key (book_id) references api.books,
+  constraint fk_tagid foreign key (tag_id) references api.tags
 }
 
 
