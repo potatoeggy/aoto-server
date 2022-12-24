@@ -9,37 +9,32 @@ create table api.tags (
 
 create table api.books (
   id serial primary key,
-  title text default '',
-  author text default '',
+  title varchar(255) not null,
+  author varchar(255) not null,
   description text default '',
-  cover text default '',
-  tags text default '',
+  cover varchar(255) default '',
   created_at timestamptz not null default now()
 );
 
 create table api.tagmap (
-  id serial primary key,
-  book_id integer not null,
-  tag_id integer not null,
+  book_id integer not null references api.books (id),
+  tag_id integer not null references api.tags (id),
   created_at timestamptz not null default now(),
-  constraint fk_bookid foreign key (book_id) references api.books,
-  constraint fk_tagid foreign key (tag_id) references api.tags
+  primary key (book_id, tag_id)
 );
 
 create table api.tagmap_minor {
   /* for minor tags */
-  id serial primary key,
-  book_id integer not null,
-  tag_id integer not null,
+  book_id integer not null references api.books (id),
+  tag_id integer not null references api.tags (id),
   created_at timestamptz not null default now(),
-  constraint fk_bookid foreign key (book_id) references api.books,
-  constraint fk_tagid foreign key (tag_id) references api.tags
+  primary key (book_id, tag_id)
 }
 
 
 create table api.authors (
   id serial primary key,
-  name varchar(255) default '',
+  name varchar(255) not null,
   created_at timestamptz not null default now()
 );
 
