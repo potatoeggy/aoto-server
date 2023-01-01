@@ -11,4 +11,3 @@ grant all on api.tags to authed_user;
 grant all on api.tagmap to authed_user;
 grant usage, select on sequence api.books_id_seq to authed_user;
 grant usage, select on sequence api.tags_id_seq to authed_user;
-grant usage, select on sequence api.tagmap_id_seq to authed_user;
