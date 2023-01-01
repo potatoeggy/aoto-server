@@ -5,14 +5,14 @@ create table api.tags (
   name varchar(255) not null unique,
   adult boolean default false,
   created_at timestamptz default now(),
-  updated_at timestamptz default now(),
+  updated_at timestamptz default now()
 );
 
 create table api.books (
   id serial primary key,
   title varchar(255) not null,
   author varchar(255) not null,
-  isbn int not null,
+  isbn varchar(255) not null,
   description text default '',
   cover varchar(255) default '',
   created_at timestamptz default now(),
