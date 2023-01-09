@@ -12,7 +12,7 @@ create table api.books (
   id serial primary key,
   title varchar(255) not null,
   author varchar(255) not null,
-  isbn varchar(255) not null,
+  isbn varchar(255) not null unique,
   description text default '',
   cover varchar(255) default '',
   created_at timestamptz default now(),
