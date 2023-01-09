@@ -1,7 +1,20 @@
+version: "3"
+
 services:
-  web:
-    build: .
+  database:
+    image: "postgres:latest"
     ports:
-      - 8080:8080
+      - 5432:5432
     env_file:
       - .env
+      # should contain:
+      # POSTGRES_USER
+      # POSTGRES_PASSWORD
+      # POSTGRES_DB
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
+      - ./db/:/commands/
+#    command: sh -c "cat /commands/*.sql | psql -U username"
+# run the following on first boot to initialise the database:
+# `docker exec -i aoto-server-database-1 sh -c "cat /commands/*.sql | psql -U POSTGRES_USER POSTGRES_DB"`
+# (where aoto-server-database-1 is the name of the running container via `docker ps`)
