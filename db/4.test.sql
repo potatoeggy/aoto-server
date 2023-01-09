@@ -148,9 +148,9 @@ values
     ('Weather')
 ;
 
-insert into api.books (title, author)
+insert into api.books (title, author, isbn)
 values
-    ('mist of grief on the river waves', 'yuehaipavilion'), ('Coloring Inside the Lines', 'liketolaugh')
+    ('mist of grief on the river waves', 'yuehaipavilion', '1'), ('Coloring Inside the Lines', 'liketolaugh', '2')
 ;
 
 insert into api.tagmap (book_id, tag_id) values (1, 5), (1, 10), (1, 15), (1, 20), (2, 1), (2, 2), (2, 5), (2, 10);
