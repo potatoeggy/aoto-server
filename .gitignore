@@ -3,3 +3,7 @@
 *.db
 postgrest.conf
 /db-data
+
+# Added by cargo
+
+/target

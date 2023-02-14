@@ -49,7 +49,7 @@ group by b.id;
 create view api.tags_view as
 select
   t.*,
-  array_agg(b.title) as books
+  array_agg(b.isbn) as books
 from api.tags t
 left join api.tagmap tm on tm.tag_id = t.id
 left join api.books b on b.id = tm.book_id
